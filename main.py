@@ -8,6 +8,13 @@ import variables
 import time
 import random
 
+def get_px_color(display):
+	clrs = []
+	for i in range(50):
+		line = []
+		for j in range(50):
+			line.append(pygame.Surface.get_at(display, (i, j)))
+		clrs.append(line)
 def Game_still_running():
 	head = variables.snack_body[-1]
 	if head[0] < 0 or head[0] > SCREEN_SIZE[0]:
@@ -31,6 +38,22 @@ def update_score(display):
 		variables.SHOULD_POP[0] = False
 		variables.SCORE += 10
 
+def draw_head_view(display):
+	head = snack_body[-1]
+	x_h = head[1]
+	y_h = head[0]
+	x_range = range(x_h  - 60, x_h + 80, 1)
+	y_range = range(y_h  - 60, y_h + 80, 1)
+
+
+	for point_x in (x_range):
+		for point_y in (y_range):
+			if (point_y != y_h or point_x != x_h) and point_x >= 0 and point_x < SCREEN_SIZE[0] and  point_y >= 0 and point_y < SCREEN_SIZE[1]:
+				#pygame.draw.rect(display, GRIS, (point_y, point_x, SIZE_RECT, SIZE_RECT))
+				(pygame.Surface.get_at(display, (point_y, point_x)))
+
+
+
 def set_body(display):
     for pos in snack_body:
         pygame.draw.rect(display, BLACK, (pos[0] - 1, pos[1] - 1, SIZE_RECT + 2, SIZE_RECT + 2))
@@ -47,11 +70,13 @@ def	effect_move(action):
 		left_act()
 	else:
 		updae_body()
+	draw_head_view(display)
 	set_body(display)
 
 def initial_game(display):
 	pygame.display.set_caption('Game')
 	display.fill(WHITE)
+	draw_head_view(display)
 	set_body(display)
 
 def	run_the_game():
@@ -70,11 +95,11 @@ def	run_the_game():
 		effect_move(variables.LAST_PRESSED)
 		draw_point()
 		pygame.display.update()
-		print(variables.SCORE)
+		#get_px_color(display)
 		time.sleep(0.05)
 
 
 if '__main__' == __name__:
 	display = pygame.display.set_mode(SCREEN_SIZE)
 	initial_game(display)
-	run_the_game()	
+	run_the_game()
