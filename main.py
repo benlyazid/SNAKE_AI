@@ -8,6 +8,22 @@ import variables
 import time
 import random
 
+def get_game_status(display):
+	status = []
+	for x in range(0, SCREEN_SIZE[0], 10):
+		row = []
+		for y in range(0, SCREEN_SIZE[1], 10):
+			color = pygame.Surface.get_at(display, (x, y))
+			value = 0
+			if color == RED:
+				value = 1
+			elif color == GREEN:
+				value = 2
+			row.append(value)
+		status.append(row)
+	return status
+
+
 def get_px_color(display):
 	clrs = []
 	for i in range(50):
@@ -15,11 +31,12 @@ def get_px_color(display):
 		for j in range(50):
 			line.append(pygame.Surface.get_at(display, (i, j)))
 		clrs.append(line)
+
 def Game_still_running():
 	head = variables.snack_body[-1]
-	if head[0] < 0 or head[0] > SCREEN_SIZE[0]:
+	if head[0] < 0 or head[0] >= SCREEN_SIZE[0]:
 		return 0
-	if head[1] < 0 or head[1] > SCREEN_SIZE[1]:
+	if head[1] < 0 or head[1] >= SCREEN_SIZE[1]:
 		return 0
 	if snack_body.count(snack_body[0]) != 1:
 		return 0
@@ -94,8 +111,11 @@ def	run_the_game():
 		display.fill(WHITE)
 		effect_move(variables.LAST_PRESSED)
 		draw_point()
+		status = get_game_status(display)
 		pygame.display.update()
 		#get_px_color(display)
+		#break
+
 		time.sleep(0.05)
 
 
