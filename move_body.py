@@ -7,35 +7,35 @@ import sys
 
 def up_act():
     global LAST_ACTION
-    head = snack_body[-1]
+    head = variables.snack_body[-1]
     variables.snack_body.append([head[0], head[1] - SIZE_RECT])
-    if SHOULD_POP[0] == True:
-        snack_body.pop(0)
+    if variables.SHOULD_POP[0] == True:
+        variables.snack_body.pop(0)
     variables.SHOULD_POP[0] = True 
     variables.LAST_ACTION = pygame.K_UP
 
 
 def down_act():
-    head = snack_body[-1]
+    head = variables.snack_body[-1]
     variables.snack_body.append([head[0], head[1] + SIZE_RECT])
-    if SHOULD_POP[0] == True:
-        snack_body.pop(0)
+    if variables.SHOULD_POP[0] == True:
+        variables.snack_body.pop(0)
     variables.SHOULD_POP[0] = True 
     variables.LAST_ACTION = pygame.K_DOWN
 
 def left_act():
-    head = snack_body[-1]
+    head = variables.snack_body[-1]
     variables.snack_body.append([head[0] - SIZE_RECT, head[1]])
-    if SHOULD_POP[0] == True:
-        snack_body.pop(0)
+    if variables.SHOULD_POP[0] == True:
+        variables.snack_body.pop(0)
     variables.SHOULD_POP[0] = True 
     variables.LAST_ACTION = pygame.K_LEFT
 
 def right_act():
-    head = snack_body[-1]
+    head = variables.snack_body[-1]
     variables.snack_body.append([head[0] + SIZE_RECT, head[1]])
-    if SHOULD_POP[0] == True:
-        snack_body.pop(0)
+    if variables.SHOULD_POP[0] == True:
+        variables.snack_body.pop(0)
     variables.SHOULD_POP[0] = True 
     variables.LAST_ACTION = pygame.K_RIGHT
     

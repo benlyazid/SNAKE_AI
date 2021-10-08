@@ -1,10 +1,10 @@
-import keras
-from keras import activations
-from keras.engine.training import Model
-from keras.mixed_precision import loss_scale_optimizer
-from keras.models import Sequential, load_model
-from keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, Flatten
-from tensorflow.keras import optimizers
+import tensorflow.keras
+from tensorflow.keras import activations
+#from tensorflow.keras.engine.training import Model
+#from keras.mixed_precision import loss_scale_optimizer
+from  tensorflow.keras.models import Sequential, load_model
+from tensorflow.keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, Flatten
+#from tensorflow.keras import optimizers
 from tensorflow.keras.optimizers import Adam
 from numpy.core.defchararray import mod
 
@@ -22,7 +22,7 @@ class Brain():
 		self.model.add(Dense(units=256, activation='relu'))
 		self.model.add(Dense(units =self.number_of_output))
 		self.model.compile(loss='mean_squared_error', optimizer=Adam(lr=self.learning_rate))
-		print(self.model.summary())
+		#print(self.model.summary())
 
 	def loadModel(self, filepath):
 		self.model = load_model(filepath)

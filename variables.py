@@ -1,4 +1,6 @@
 import pygame
+import numpy as np
+
 #	ENV_VARIABLES
 
 snack_body = [[300, 300], [320, 300], [340, 300], [360, 300]]
@@ -22,9 +24,10 @@ MOVE_KEY = [pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT]
 
 
 TARGET = [0, 0]
-SHOULD_POP = [False]
+SHOULD_POP = [True]
 
 SCORE = 0
+BOARD = np.zeros((1,80,80,3))
 
 #	BRAIN_ENV
 
