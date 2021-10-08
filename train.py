@@ -48,6 +48,7 @@ while 1:
 		
 		Ai_memory.remember([current_state, action, reward, state], gameOver)
 		inputs, targets = Ai_memory.get_batch(Ai_model, batchSize)
+		current_state = state
 		#Ai_model.train_on_batch(inputs, targets)
 		
 		end = time.monotonic()
