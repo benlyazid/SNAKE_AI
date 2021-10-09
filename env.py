@@ -121,8 +121,8 @@ def	step(display, action):
 		variables.SCORE += 1
 		reward = 2
 	draw_point(display)
-	status = get_game_status(display)
 	pygame.display.update()
+	status = get_game_status(display)
 	#print(variables.snack_body)
 	return status, reward, game_over
 

@@ -49,11 +49,11 @@ while 1:
 		Ai_memory.remember([current_state, action, reward, state], gameOver)
 		inputs, targets = Ai_memory.get_batch(Ai_model, batchSize)
 		current_state = state
-		#Ai_model.train_on_batch(inputs, targets)
+		loss = Ai_model.train_on_batch(inputs, targets)
 		
 		end = time.monotonic()
 
-		print("time : ", end - start)
+		print("time : ", end - start, "with loss  : ", loss)
 
 	if variables.SCORE > maxNCollected and variables.SCORE > 2:
 		maxNCollected = variables.SCORE
