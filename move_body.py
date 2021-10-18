@@ -3,7 +3,6 @@ import variables
 import pygame
 from pygame.locals import *
 from pygame.rect import *
-import sys
 
 def up_act():
     global LAST_ACTION
