@@ -12,7 +12,7 @@ game_display = reset_env()
 jump = int(SIZE_RECT)
 table_size = int(SCREEN_SIZE[0] / jump)
 Ai_brain = Brain((table_size, table_size, 1), learningRate) # 3 !!!!!
-Ai_model = Ai_brain.loadModel('model_snack_24k.h5')
+Ai_model = Ai_brain.loadModel('model_snack_28k.h5')
 # criet dqn
 Ai_memory = Dqn(variables.memSize, variables.gamma)
 # Starting the main loop
