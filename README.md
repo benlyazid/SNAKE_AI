@@ -1,7 +1,7 @@
-# **BUILD  AI THAT PLAY SNACK GAME**
+# **BUILD  AI THAT PLAY SNAK GAME**
 
 ### **Short description:**
-In this Project I have build a AI that can play snack game using Deep reinforcement learning based on Deep Q-learning Algorithm .
+In this Project I have build a AI that can play snake game using Deep reinforcement learning based on Deep Q-learning Algorithm .
 
 ### **DEEP-Q-LEARNING Algorithm:**
 The Algo It's one of the most populer algo used in Reinforecement learning, it's start by making a random move then he take a reward for each move like 10 for eating an apple and -0.03 for a simpel move and -1 if he lose then wa save the state, action, reward, next state in a memmory that we will use it to correct the nueral.
