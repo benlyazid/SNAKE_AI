@@ -1,4 +1,4 @@
-# **BUILD  AI THAT PLAY SNAK GAME**
+# **BUILD  AI THAT PLAY SNAKE GAME**
 
 ### **Short description:**
 In this Project I have build a AI that can play snake game using Deep reinforcement learning based on Deep Q-learning Algorithm .
